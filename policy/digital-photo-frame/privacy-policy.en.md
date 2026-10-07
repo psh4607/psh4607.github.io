@@ -1,12 +1,9 @@
 # Digital Photo Frame Privacy Policy
 
-> Pre-publication draft. This document reflects the current implementation. The effective date and support correspondence retention rules must be finalized before publication.
-
 - App: Digital Photo Frame / 디지털액자
 - Developer: PSH4607 (박성호)
 - Contact: [dev.psh30095@gmail.com](mailto:dev.psh30095@gmail.com)
-- Draft prepared: October 7, 2026
-- Effective date: To be finalized before publication
+- Effective date: October 7, 2026
 
 This policy explains how PSH4607 handles photos and settings in Digital Photo Frame. It covers the Android app's photo playback features and inquiries sent directly to the developer.
 
@@ -61,7 +58,7 @@ Photo copies and settings are stored in internal app storage protected by Androi
 
 You can send privacy inquiries to [dev.psh30095@gmail.com](mailto:dev.psh30095@gmail.com). If you contact us, your sender email address, message, and any attachments you choose to provide are delivered by email. We use Gmail to respond to inquiries, so the email service also processes that correspondence. You do not need to send sensitive photos, identity documents, or other material unnecessary for your inquiry.
 
-Correspondence is used to respond to your inquiry and handle your request. It is separate from photos and settings processed locally by the app. Retention and deletion rules for support correspondence will be finalized and stated here before publication.
+Correspondence is used to respond to your inquiry and handle your request. It is separate from photos and settings processed locally by the app. Support emails and attachments are deleted within 90 days after the inquiry is closed.
 
 You can change permissions and delete app data through device settings. You can also contact the privacy email address to request access to, correction of, or deletion of information you provided directly in correspondence.
 
