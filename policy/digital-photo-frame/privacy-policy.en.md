@@ -3,9 +3,11 @@
 - App: Digital Photo Frame / 디지털액자
 - Developer: PSH4607 (박성호)
 - Contact: [dev.psh30095@gmail.com](mailto:dev.psh30095@gmail.com)
-- Effective date: October 7, 2026
+- Revision and effective date: October 9, 2026
 
 This policy explains how PSH4607 handles photos and settings in Digital Photo Frame. It covers the Android app's photo playback features and inquiries sent directly to the developer.
+
+Photo handling depends on the installed app version. The existing 0.1.x version with a single photo list reads original device-album URIs and refreshes the list when you return to the app or start the frame. Versions with named app albums copy newly imported photos into internal storage cumulatively, without automatic synchronization. Descriptions of app album creation, photo removal, and album deletion below apply to versions with those features. Publishing this policy does not itself mean that an app update has been released.
 
 ## 1. Information processed on your device
 
@@ -14,19 +16,21 @@ The app does not require an account or sign-in. It processes the following infor
 | Information | Purpose and storage |
 | --- | --- |
 | Photos you select through the system photo picker | Copied to the app's private internal storage for offline playback. |
-| Device photos and album information you allow the app to access | Used to display albums and photo counts and play photos from your selected album. Album mode references the originals without creating separate photo copies. |
-| Photo paths or URIs and the selected album's identifier and name | Stored in private app preferences to restore your selection and display photos. |
-| Display interval, sequential or shuffle mode, playback order and position, and whether the usage hint has been shown | Stored in private app preferences to restore settings and playback state. |
+| Device photos and album information you allow the app to access | Used to display device albums and photo counts. Versions with app albums copy selected device-album photos to private internal app storage at import time without automatic synchronization. The existing single-list version references originals and refreshes its list. |
+| Photo paths or URIs, source URIs for duplicate detection, app album identifiers and names, and the default and last played album | Stored in private internal app storage to restore each album and prevent the same source URI from being added twice to the same app album. |
+| Display interval, sequential or shuffle mode, per-album playback order and position, and whether the usage hint has been shown | Stored in private internal app storage to restore shared settings and per-album playback state. |
 
-Photo imports copy the contents of the original file. Embedded metadata, such as capture time or location, may therefore remain in the imported copy. The app does not separately extract this metadata to track or analyze your location. It uses the device media store's capture-date information to sort album photos.
+Picker imports and device-album imports in versions with app albums copy the contents of the original file. Embedded metadata, such as capture time or location, may therefore remain in the imported copy. The app does not separately extract this metadata to track or analyze your location. It uses the device media store's capture-date information to sort album photos.
 
 ## 2. Photo permissions
 
-The direct photo selection and Google Photos selection options both use the Android system photo picker. The app imports the items you select.
+The photo picker option uses the Android system photo picker. The direct photo selection and Google Photos selection options in earlier versions use the same system picker. The app imports the items you select.
 
-Choosing a device album requests photo or storage read access, depending on your Android version. On Android 14 or later, if you grant access to selected photos only, the app lists and plays album photos within that permitted selection. The selected device album is refreshed when you return to the app or start the frame.
+Choosing a device album requests photo or storage read access, depending on your Android version. On Android 14 or later, if you grant access to selected photos only, the app lists device albums and imports photos within that permitted selection. Later additions to or deletions from the original album are not automatically reflected in the imported app album.
 
-You can change or revoke photo permissions in your device settings. You can use the system photo picker without granting broad photo access. Revoking permission may prevent the app from reading original album photos, but it does not automatically delete copies already imported into the app.
+You can change or revoke photo permissions in your device settings. You can use the system photo picker without granting broad photo access. Revoking permission may prevent further device-album queries and imports, or playback of original photo references used by the existing version or retained during an update, but it does not automatically delete copies already imported into the app.
+
+When updating from an earlier version, existing photos and playback state are migrated into an app album. Photos previously stored as original device-album URIs may retain those references to avoid data loss. These photos are not automatically synchronized, and deleting originals or changing permissions may make them unavailable for playback. Newly imported photos use internal copies.
 
 ## 3. Transfers and third-party services
 
@@ -42,7 +46,9 @@ This privacy policy website is hosted on GitHub Pages and uses no advertising or
 
 Imported photos and settings remain on your device to provide the app's features. They do not expire automatically after a fixed period.
 
-After successfully saving a replacement photo selection or a different photo source, the app attempts to remove imported copies it no longer uses. Unused copies may remain after a save failure, unexpected shutdown, or unsuccessful file deletion.
+The existing single-list version attempts to remove unused internal copies after successfully replacing the photo list or source.
+
+In versions with app albums, imports add photos to the selected app album without replacing its existing contents. Cancellation or import failure leaves the existing album contents intact. You can remove selected photos or delete an app album within the app. After saving those changes, the app attempts to remove internal photo copies no longer referenced by any app album. Photos used by other app albums are retained. Unused copies may remain after a save failure, unexpected shutdown, or unsuccessful file deletion.
 
 To remove all imported photos and settings, use **Storage → Clear storage / Clear data** for this app in Android settings, or uninstall the app. Menu names vary by device. **Clearing the cache alone does not remove all imported photos and settings.** The current app does not have an in-app delete-all button.
 
