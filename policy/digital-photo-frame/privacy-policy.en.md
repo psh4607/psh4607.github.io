@@ -3,7 +3,7 @@
 - App: Digital Photo Frame / 디지털액자
 - Developer: PSH4607 (박성호)
 - Contact: [dev.psh30095@gmail.com](mailto:dev.psh30095@gmail.com)
-- Revision and effective date: October 9, 2026
+- Revision and effective date: October 10, 2026
 
 This policy explains how PSH4607 handles photos and settings in Digital Photo Frame. It covers the Android app's photo playback features and inquiries sent directly to the developer.
 
@@ -18,7 +18,7 @@ The app does not require an account or sign-in. It processes the following infor
 | Photos you select through the system photo picker | Copied to the app's private internal storage for offline playback. |
 | Device photos and album information permitted in earlier versions | Earlier versions with device-album features list device albums and photo counts and copy photos to internal storage when importing into app albums. The legacy single-list version references originals and refreshes its list. The latest picker-only screen does not directly query device albums. |
 | Photo paths or URIs, source URIs for duplicate detection, app album identifiers and names, and the default and last played album | Stored in private internal app storage to restore each album and prevent the same source URI from being added twice to the same app album. |
-| Display interval, sequential or shuffle mode, per-album playback order and position, and whether the usage hint has been shown | Stored in private internal app storage to restore shared settings and per-album playback state. |
+| Display interval, sequential or shuffle mode, photo size/display mode (Fit, Fill, or Stretch), per-album playback order and position, and legacy usage-hint state | Stored in private internal app storage to restore shared settings and per-album playback state. The legacy hint value is retained during updates but does not control the latest screen’s three-second guidance. |
 
 Photos imported through the system picker copy the contents of the original file. Embedded metadata, such as capture time or location, may therefore remain in the imported copy. The app does not separately extract this metadata to track or analyze your location. Earlier device-album features also copied original files and used the device media store capture-date information to sort album photos.
 

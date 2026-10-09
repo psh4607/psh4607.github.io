@@ -14,9 +14,8 @@
 <ul>
 <li>App: Digital Photo Frame / 디지털액자</li>
 <li>Developer: PSH4607 (박성호)</li>
-<li>Contact: <a href="mailto:dev.psh30095@gmail.com">dev.psh30095@gmail.com</a>
-</li>
-<li>Revision and effective date: October 9, 2026</li>
+<li>Contact: <a href="mailto:dev.psh30095@gmail.com">dev.psh30095@gmail.com</a></li>
+<li>Revision and effective date: October 10, 2026</li>
 </ul>
 <p>This policy explains how PSH4607 handles photos and settings in Digital Photo Frame. It covers the Android app's photo playback features and inquiries sent directly to the developer.</p>
 <p>You can identify photo handling by the app’s album management screen. The legacy app, which has no screen for creating or managing named app albums and lets you select only one photo list, reads original device-album URIs and refreshes the list when you return to the app or start the frame. An app with a screen for creating and managing named app albums copies newly imported photos into internal storage cumulatively, without automatic synchronization. Descriptions of app album creation, photo removal, and album deletion below apply to apps with that album management screen. Development builds may display the same version number, so the version number alone does not distinguish these behaviors. Publishing this policy does not itself mean that an app update has been released.</p>
@@ -43,8 +42,8 @@
 <td>Stored in private internal app storage to restore each album and prevent the same source URI from being added twice to the same app album.</td>
 </tr>
 <tr>
-<td>Display interval, sequential or shuffle mode, per-album playback order and position, and whether the usage hint has been shown</td>
-<td>Stored in private internal app storage to restore shared settings and per-album playback state.</td>
+<td>Display interval, sequential or shuffle mode, photo size/display mode (Fit, Fill, or Stretch), per-album playback order and position, and legacy usage-hint state</td>
+<td>Stored in private internal app storage to restore shared settings and per-album playback state. The legacy hint value is retained during updates but does not control the latest screen’s three-second guidance.</td>
 </tr>
 </tbody>
 </table>
