@@ -7,7 +7,7 @@
 
 This policy explains how PSH4607 handles photos and settings in Digital Photo Frame. It covers the Android app's photo playback features and inquiries sent directly to the developer.
 
-Photo handling depends on the installed app version. The existing 0.1.x version with a single photo list reads original device-album URIs and refreshes the list when you return to the app or start the frame. Versions with named app albums copy newly imported photos into internal storage cumulatively, without automatic synchronization. Descriptions of app album creation, photo removal, and album deletion below apply to versions with those features. Publishing this policy does not itself mean that an app update has been released.
+You can identify photo handling by the app’s album management screen. The legacy app, which has no screen for creating or managing named app albums and lets you select only one photo list, reads original device-album URIs and refreshes the list when you return to the app or start the frame. An app with a screen for creating and managing named app albums copies newly imported photos into internal storage cumulatively, without automatic synchronization. Descriptions of app album creation, photo removal, and album deletion below apply to apps with that album management screen. Development builds may display the same version number, so the version number alone does not distinguish these behaviors. Publishing this policy does not itself mean that an app update has been released.
 
 ## 1. Information processed on your device
 
@@ -48,7 +48,7 @@ Imported photos and settings remain on your device to provide the app's features
 
 The existing single-list version attempts to remove unused internal copies after successfully replacing the photo list or source.
 
-In versions with app albums, imports add photos to the selected app album without replacing its existing contents. Cancellation or import failure leaves the existing album contents intact. You can remove selected photos or delete an app album within the app. After saving those changes, the app attempts to remove internal photo copies no longer referenced by any app album. Photos used by other app albums are retained. Unused copies may remain after a save failure, unexpected shutdown, or unsuccessful file deletion.
+In versions with app albums, imports add photos to the selected app album without replacing its existing contents. You can cancel an import while photos are being copied. Cancellation accepted during this phase, or an import failure, leaves the existing album contents intact. Cancellation is unavailable once copying ends and the app begins finalizing the album save. After an import completes, you can remove its photos as described below. You can remove selected photos or delete an app album within the app. After saving those changes, the app attempts to remove internal photo copies no longer referenced by any app album. Photos used by other app albums are retained. Unused copies may remain after a save failure, unexpected shutdown, or unsuccessful file deletion.
 
 To remove all imported photos and settings, use **Storage → Clear storage / Clear data** for this app in Android settings, or uninstall the app. Menu names vary by device. **Clearing the cache alone does not remove all imported photos and settings.** The current app does not have an in-app delete-all button.
 
