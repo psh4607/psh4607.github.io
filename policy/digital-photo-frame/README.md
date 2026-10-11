@@ -2,7 +2,7 @@
 
 - English: https://psh4607.github.io/policy/digital-photo-frame/
 - Korean: https://psh4607.github.io/policy/digital-photo-frame/ko.html
-- Policy revision and effective date: October 10, 2026. Support emails and attachments are deleted within 90 days after the inquiry is closed.
+- Policy revision and effective date: October 11, 2026. Support emails and attachments are deleted within 90 days after the inquiry is closed.
 - The policy distinguishes the single-list app from the named-album app by the presence of an album management screen, not by a broad version-number range. Cancellation is available while copying photos and disabled while the album save is finalized. Publishing a policy revision does not establish that an app update has shipped.
 
 The Markdown files are the editable source; index.html and ko.html are static rendered copies. Regenerate both HTML files when updating the corresponding Markdown. No client-side JavaScript, analytics, or external fonts are used. These files are independent of the existing policy/gcp pages.
@@ -14,3 +14,7 @@ The Markdown files are the editable source; index.html and ko.html are static re
 ## 2026-10-10 retained playback preference disclosure
 
 Both policies now disclose the persisted Fit/Fill/Stretch photo display preference and distinguish the retained legacy hint value from the current three-second guidance. Photo handling and the 90-day support retention rule are unchanged.
+
+## 2026-10-11 device gallery and direct Google Photos import
+
+The policies describe device photo permissions and optional Google Photos Picker authorization, selected photo downloads into private offline storage, local media identifiers for duplicate detection, memory-only operation tokens/session data, best-effort session deletion, and removal of Google access separately from deletion of imported photos. Google data use is limited to requested imports, app album management, and frame playback. Auto-sync and Ambient integration are not offered. The 90-day support retention rule is unchanged. Policy publication does not establish an app release, Google authorization verification, or partner approval.

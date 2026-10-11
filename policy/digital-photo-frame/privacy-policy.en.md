@@ -3,7 +3,7 @@
 - App: Digital Photo Frame / 디지털액자
 - Developer: PSH4607 (박성호)
 - Contact: [dev.psh30095@gmail.com](mailto:dev.psh30095@gmail.com)
-- Revision and effective date: October 10, 2026
+- Revision and effective date: October 11, 2026
 
 This policy explains how PSH4607 handles photos and settings in Digital Photo Frame. It covers the Android app's photo playback features and inquiries sent directly to the developer.
 
@@ -11,32 +11,42 @@ You can identify photo handling by the app’s album management screen. The lega
 
 ## 1. Information processed on your device
 
-The app does not require an account or sign-in. It processes the following information on your device to display your photos.
+No app account or registration is required. Playing device photos does not require sign-in; choosing to import from Google Photos requires Google account authorization and consent. The app processes the following information on your device.
 
 | Information | Purpose and storage |
 | --- | --- |
-| Photos you select through the system photo picker | Copied to the app's private internal storage for offline playback. |
-| Device photos and album information permitted in earlier versions | Earlier versions with device-album features list device albums and photo counts and copy photos to internal storage when importing into app albums. The legacy single-list version references originals and refreshes its list. The latest picker-only screen does not directly query device albums. |
-| Photo paths or URIs, source URIs for duplicate detection, app album identifiers and names, and the default and last played album | Stored in private internal app storage to restore each album and prevent the same source URI from being added twice to the same app album. |
+| Photos you select from the device gallery, system photo picker, or Google Photos selection screen | Copied to private internal app storage for offline frame playback. Google Photos imports download only your selected photos; videos are not imported. |
+| Device photos and album information you permit the app to access | Used to display permitted gallery photos, albums, and photo counts and let you select photos. The legacy single-list version references originals and refreshes its list. |
+| Photo paths or URIs, source URIs or Google Photos media identifiers for duplicate detection, app album identifiers and names, and the default and last played album | Stored in private internal app storage to restore each album and prevent the same source from being added twice to the same app album. |
 | Display interval, sequential or shuffle mode, photo size/display mode (Fit, Fill, or Stretch), per-album playback order and position, and legacy usage-hint state | Stored in private internal app storage to restore shared settings and per-album playback state. The legacy hint value is retained during updates but does not control the latest screen’s three-second guidance. |
 
-Photos imported through the system picker copy the contents of the original file. Embedded metadata, such as capture time or location, may therefore remain in the imported copy. The app does not separately extract this metadata to track or analyze your location. Earlier device-album features also copied original files and used the device media store capture-date information to sort album photos.
+Device imports copy original file contents, and Google Photos imports store the original download file provided by Google. Embedded metadata, such as capture time or location, may therefore remain in the imported copy. The app does not separately extract this metadata to track or analyze your location. The device gallery uses capture-date information from the device media store to sort photos.
 
 ## 2. Photo permissions
 
-The latest picker-only screen uses the Android system photo picker when you tap Add photos and copies the items you select into internal storage. The photo picker, direct photo selection, and Google Photos selection options in earlier versions use the same system picker. The latest screen does not request broad photo or storage read access to add new photos. This screen change is under development; publishing this policy does not itself mean that an app update has been released.
+The photo source screen offers the device gallery and Google Photos. The device gallery reads albums and photos from the device media store and copies only the photos you select into internal app storage. It requests storage read access on Android 12L or earlier and photo read access on Android 13 or later. On Android 14 or later, granting access to selected photos only limits the displayed list to those photos. You can change denied permissions in device settings.
 
-Earlier versions with a device-album option request photo or storage read access, depending on your Android version. On Android 14 or later, if you grant access to selected photos only, those versions list device albums and import photos within that permitted selection. Later additions to or deletions from the original album are not automatically reflected in the imported app album. The latest picker-only screen does not offer this feature.
+Flows that use the Android system photo picker access only the items you select and do not require broad photo access. Earlier picker-only screens and earlier options labelled Google Photos that opened the system picker use this method. They differ from the new direct Google Photos connection. The new photo source screen and direct Google Photos import are under development; publishing this policy does not establish an app release or completed Google authorization verification.
 
-You can change or revoke photo permissions in your device settings. Importing through the system photo picker does not require broad photo access. The app retains photo read permission declarations to play original photo references preserved during an update using permissions previously granted. The latest screen does not newly request those permissions. Revoking permission or deleting originals may prevent playback of existing original references, but does not automatically delete copies already imported into the app.
+Direct Google Photos import uses Google's account authorization and selection screens. The app requests only the `photospicker.mediaitems.readonly` scope to read media you select. It does not request access to your entire Google Photos library or albums, email or profile scopes, or a refresh token for offline access. You do not enter your Google account password into the app or provide it to the developer.
+
+You can change or revoke photo permissions in device settings and remove Google access through [your Google account connections](https://myaccount.google.com/connections). Revoking permission or deleting originals may prevent playback of existing original references, but does not automatically delete copies already imported into the app. Later additions to or deletions from original albums are not automatically reflected after an import.
 
 When updating from an earlier version, existing photos and playback state are migrated into an app album. Photos previously stored as original device-album URIs may retain those references to avoid data loss. These photos are not automatically synchronized, and deleting originals or changing permissions may make them unavailable for playback. Newly imported photos use internal copies.
 
 ## 3. Transfers and third-party services
 
-The current app does not send photos or playback settings to a developer-operated server. It does not use advertising, user behavior analytics, or a separate crash-reporting SDK, and it does not declare internet access permission. It has no feature for sharing or selling your photos to external parties.
+The app does not send photos or playback settings to a developer-operated server. It does not use advertising, user behavior analytics, or a separate crash-reporting SDK. It declares internet access permission for direct Google Photos import; imported photos can be played offline.
 
-Selection and download of cloud photos, including Google Photos, depend on the system photo picker and photo provider connected to your device. The app does not receive your Google account password or authentication token, and does not directly synchronize Google Photos albums. Your use of a photo provider's service is subject to that provider's privacy policy.
+If you choose Google Photos, the app obtains an access token through Google Play services authorization and uses HTTPS to create a Google Photos Picker session, check whether selection is complete, and retrieve selected items. API requests go to `photospicker.googleapis.com`, and photo downloads go to Google's `googleusercontent.com` subdomains. The token authenticates these requests, and photos are downloaded from Google to your device. Google's services and your browser participate in authorization and photo selection; their processing is subject to the [Google Privacy Policy](https://policies.google.com/privacy).
+
+The app holds access tokens, selection session information, and temporary download URLs in memory during the operation, without saving them to files or databases. Account and authorization state managed by Google Play services and your browser follows those services' behavior and settings. Google Photos media identifiers used to detect duplicate imports are stored with the photo list in the app's internal database. The app does not obtain or store a separate refresh token.
+
+Information received from Google Photos is used for the photo imports, app album management, and frame playback you request. Photos and related information are not sold or used for advertising, analytics, or AI training. Use of information received from Google APIs follows the [Google API Services User Data Policy](https://developers.google.com/terms/api-services-user-data-policy), including its Limited Use requirements, and the [Google Photos API User Data and Developer Policy](https://developers.google.com/photos/support/api-policy).
+
+Google Photos album auto-sync and Ambient API integration are not currently provided. Items marked as coming soon describe future designs; they do not request access or retrieve data for those features.
+
+Cloud photo selection through the system photo picker depends on the photo provider connected to your device and is subject to that provider's privacy policy.
 
 Information processed by Google's own services, such as Google Play distribution, purchases, and device diagnostics, is governed by the [Google Privacy Policy](https://policies.google.com/privacy). Those services are separate from processing performed directly by this app.
 
@@ -44,7 +54,9 @@ This privacy policy website is hosted on GitHub Pages and uses no advertising or
 
 ## 4. Retention and deletion
 
-Imported photos and settings remain on your device to provide the app's features. They do not expire automatically after a fixed period.
+Imported photos, source identifiers for duplicate detection, and settings remain on your device to provide the app's features. They do not expire automatically after a fixed period.
+
+When a Google Photos import completes, is cancelled, or encounters an error, the app attempts to delete the Google selection session. Network failures or app process termination can prevent that request from completing; remaining sessions follow Google's expiry policy. Deleting a selection session or removing Google access does not delete previously imported internal photo copies.
 
 The existing single-list version attempts to remove unused internal copies after successfully replacing the photo list or source.
 
