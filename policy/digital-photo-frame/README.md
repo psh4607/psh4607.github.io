@@ -3,7 +3,7 @@
 - App homepage (English and Korean): https://psh4607.github.io/policy/digital-photo-frame/home.html
 - English: https://psh4607.github.io/policy/digital-photo-frame/
 - Korean: https://psh4607.github.io/policy/digital-photo-frame/ko.html
-- Policy revision and effective date: October 11, 2026. Support emails and attachments are deleted within 90 days after the inquiry is closed.
+- Policy revision and effective date: October 13, 2026. Support emails and attachments are deleted within 90 days after the inquiry is closed.
 - The policy distinguishes the single-list app from the named-album app by the presence of an album management screen, not by a broad version-number range. Cancellation is available while copying photos and disabled while the album save is finalized. Publishing a policy revision does not establish that an app update has shipped.
 
 The Markdown files are the editable source; index.html and ko.html are static rendered copies. Regenerate both HTML files when updating the corresponding Markdown. No client-side JavaScript, analytics, or external fonts are used. These files are independent of the existing policy/gcp pages.
@@ -28,3 +28,7 @@ The policies describe device photo permissions and optional Google Photos Picker
 - Editable sources: `terms-of-service.en.md` and `terms-of-service.ko.md`; static rendered copies: `terms.html` and `terms-ko.html`. Keep both languages aligned when revising them.
 - The homepage links to both terms pages; each terms page links to the homepage, the other language, and the matching privacy policy. Privacy-policy content and the 90-day support retention rule are unchanged.
 - Publication does not establish Google OAuth verification approval, an app release, or implementation of an in-app terms consent flow.
+
+## 2026-10-13 same-device gallery album linking
+
+Both languages describe the linked folder feature as build-dependent and under development: original URI references without copies, locally retained album identifiers and state, full photo read permission, permission restoration and paused playback, one-way additions/deletions, and unlinking without modifying originals. Manual imports and the 90-day support retention rule are unchanged. Google Photos Ambient partner approval is pending; policy publication does not establish a feature release.

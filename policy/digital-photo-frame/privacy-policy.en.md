@@ -3,11 +3,23 @@
 - App: Digital Photo Frame / 디지털액자
 - Developer: PSH4607 (박성호)
 - Contact: [dev.psh30095@gmail.com](mailto:dev.psh30095@gmail.com)
-- Revision and effective date: October 11, 2026
+- Revision and effective date: October 13, 2026
 
 This policy explains how PSH4607 handles photos and settings in Digital Photo Frame. It covers the Android app's photo playback features and inquiries sent directly to the developer.
 
-You can identify photo handling by the app’s album management screen. The legacy app, which has no screen for creating or managing named app albums and lets you select only one photo list, reads original device-album URIs and refreshes the list when you return to the app or start the frame. An app with a screen for creating and managing named app albums copies newly imported photos into internal storage cumulatively, without automatic synchronization. Descriptions of app album creation, photo removal, and album deletion below apply to apps with that album management screen. Development builds may display the same version number, so the version number alone does not distinguish these behaviors. Publishing this policy does not itself mean that an app update has been released.
+You can identify photo handling by the app’s album management screen. The legacy app, which has no screen for creating or managing named app albums and lets you select only one photo list, reads original device-album URIs and refreshes the list when you return to the app or start the frame. Manual albums in an app with a screen for creating and managing named app albums copy newly imported photos into internal storage cumulatively, without automatic synchronization. Descriptions of app album creation, photo removal, and album deletion below apply to apps with that album management screen. Development builds may display the same version number, so the version number alone does not distinguish these behaviors. Publishing this policy does not itself mean that an app update has been released.
+
+## Device gallery album linking (feature under development)
+
+The following applies only to builds with the “Link a gallery album” feature. It differs from manual imports in existing installations; publishing this policy does not establish a feature release.
+
+Link targets are folder-based albums on the same device where the app is installed. Gallery-specific people or favorites categories and albums on other devices are not targets. The app stores the linked album’s storage volume and album (bucket) identifiers, name and path, original photo content URIs, and link and playback state in private internal app storage. Linked photos are read from originals without creating internal photo copies.
+
+Linking requires full photo read access. Selected-photo access or denial prevents completing a link. When another system request is available, the app requests access again in response to your action; otherwise it directs you to device settings. If access is revoked or reduced to selected photos after linking, the app preserves the link and existing list and pauses linked-photo playback. It queries again after full access is restored.
+
+The app refreshes the linked folder when you open the app or start playback, and when device photo changes are detected during playback. This one-way link reflects photo additions and deletions in the frame list without modifying or deleting gallery originals. Insufficient permission or a query error alone does not delete the link or existing list. Unlinking or deleting a linked album removes only its app link information, photo list, and playback state.
+
+Internal copies imported into manual albums retain the existing retention and deletion behavior. Direct Google Photos Picker imports are also unchanged. Google Photos Ambient API integration awaits partner approval and is not provided; screens marked awaiting approval or coming soon do not request access or retrieve data for that feature.
 
 ## 1. Information processed on your device
 
@@ -30,7 +42,7 @@ Flows that use the Android system photo picker access only the items you select 
 
 Direct Google Photos import uses Google's account authorization and selection screens. The app requests only the `photospicker.mediaitems.readonly` scope to read media you select. It does not request access to your entire Google Photos library or albums, email or profile scopes, or a refresh token for offline access. You do not enter your Google account password into the app or provide it to the developer.
 
-You can change or revoke photo permissions in device settings and remove Google access through [your Google account connections](https://myaccount.google.com/connections). Revoking permission or deleting originals may prevent playback of existing original references, but does not automatically delete copies already imported into the app. Later additions to or deletions from original albums are not automatically reflected after an import.
+You can change or revoke photo permissions in device settings and remove Google access through [your Google account connections](https://myaccount.google.com/connections). Revoking permission or deleting originals may prevent playback of existing original references, but does not automatically delete copies already imported into the app. Later additions to or deletions from original albums are not automatically reflected after a manual import.
 
 When updating from an earlier version, existing photos and playback state are migrated into an app album. Photos previously stored as original device-album URIs may retain those references to avoid data loss. These photos are not automatically synchronized, and deleting originals or changing permissions may make them unavailable for playback. Newly imported photos use internal copies.
 
