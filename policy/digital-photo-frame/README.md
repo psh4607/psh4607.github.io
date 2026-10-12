@@ -19,3 +19,12 @@ Both policies now disclose the persisted Fit/Fill/Stretch photo display preferen
 ## 2026-10-11 device gallery and direct Google Photos import
 
 The policies describe device photo permissions and optional Google Photos Picker authorization, selected photo downloads into private offline storage, local media identifiers for duplicate detection, memory-only operation tokens/session data, best-effort session deletion, and removal of Google access separately from deletion of imported photos. Google data use is limited to requested imports, app album management, and frame playback. Auto-sync and Ambient integration are not offered. The 90-day support retention rule is unchanged. Policy publication does not establish an app release, Google authorization verification, or partner approval.
+
+## 2026-10-12 terms of service
+
+- English: https://psh4607.github.io/policy/digital-photo-frame/terms.html
+- Korean: https://psh4607.github.io/policy/digital-photo-frame/terms-ko.html
+- Terms revision and effective date: October 12, 2026.
+- Editable sources: `terms-of-service.en.md` and `terms-of-service.ko.md`; static rendered copies: `terms.html` and `terms-ko.html`. Keep both languages aligned when revising them.
+- The homepage links to both terms pages; each terms page links to the homepage, the other language, and the matching privacy policy. Privacy-policy content and the 90-day support retention rule are unchanged.
+- Publication does not establish Google OAuth verification approval, an app release, or implementation of an in-app terms consent flow.
