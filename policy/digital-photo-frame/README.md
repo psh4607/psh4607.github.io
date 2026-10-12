@@ -1,5 +1,6 @@
-# Digital Photo Frame privacy pages
+# Digital Photo Frame public pages
 
+- App homepage (English and Korean): https://psh4607.github.io/policy/digital-photo-frame/home.html
 - English: https://psh4607.github.io/policy/digital-photo-frame/
 - Korean: https://psh4607.github.io/policy/digital-photo-frame/ko.html
 - Policy revision and effective date: October 11, 2026. Support emails and attachments are deleted within 90 days after the inquiry is closed.
