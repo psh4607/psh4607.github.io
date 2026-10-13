@@ -32,3 +32,7 @@ The policies describe device photo permissions and optional Google Photos Picker
 ## 2026-10-13 same-device gallery album linking
 
 Both languages describe the linked folder feature as build-dependent and under development: original URI references without copies, locally retained album identifiers and state, full photo read permission, permission restoration and paused playback, one-way additions/deletions, and unlinking without modifying originals. Manual imports and the 90-day support retention rule are unchanged. Google Photos Ambient partner approval is pending; policy publication does not establish a feature release.
+
+## 2026-10-13 unlinking into a manual album
+
+Unlinking a device album copies every photo in the current app album into private internal storage before converting that same album to a manual album. Subsequent changes in the source album are no longer reflected. Failure or cancellation preserves the original link and list and cleans temporary copies; deleting a linked album remains a separate action. Gallery originals and the 90-day support retention rule are unchanged. Policy publication does not establish an app release.
