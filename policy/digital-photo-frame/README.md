@@ -36,3 +36,7 @@ Both languages describe the linked folder feature as build-dependent and under d
 ## 2026-10-13 unlinking into a manual album
 
 Unlinking a device album copies every photo in the current app album into private internal storage before converting that same album to a manual album. Subsequent changes in the source album are no longer reflected. Failure or cancellation preserves the original link and list and cleans temporary copies; deleting a linked album remains a separate action. Gallery originals and the 90-day support retention rule are unchanged. Policy publication does not establish an app release.
+
+## 2026-10-13 system favorites linking
+
+On Android 11 or later, the app can link the device's system MediaStore favorites collection, including when it is empty, and reflect later favorite selections and removals. Gallery-private or cloud-only favorites not shared with MediaStore, people categories, and albums on other devices are excluded. Android 10 or earlier remains folder-only. No additional permission, network transfer, or original-photo modification is introduced. The existing unlink-to-manual behavior and 90-day support retention rule are unchanged. Publishing this policy does not establish an app release.
