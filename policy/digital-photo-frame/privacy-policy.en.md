@@ -3,7 +3,7 @@
 - App: Digital Photo Frame / 디지털액자
 - Developer: PSH4607 (박성호)
 - Contact: [dev.psh30095@gmail.com](mailto:dev.psh30095@gmail.com)
-- Revision and effective date: October 13, 2026
+- Revision and effective date: October 14, 2026
 
 This policy explains how PSH4607 handles photos and settings in Digital Photo Frame. It covers the Android app's photo playback features and inquiries sent directly to the developer.
 
@@ -33,6 +33,9 @@ No app account or registration is required. Playing device photos does not requi
 | Device photos and album information you permit the app to access | Used to display permitted gallery photos, albums, and photo counts and let you select photos. On Android 11 or later, the system’s favorite information is read to construct the linked list. The legacy single-list version references originals and refreshes its list. |
 | Photo paths or URIs, source URIs or Google Photos media identifiers for duplicate detection, app album identifiers and names, and the default and last played album | Stored in private internal app storage to restore each album and prevent the same source from being added twice to the same app album. |
 | Display interval, sequential or shuffle mode, photo size/display mode (Fit, Fill, or Stretch), per-album playback order and position, and legacy usage-hint state | Stored in private internal app storage to restore shared settings and per-album playback state. The legacy hint value is retained during updates but does not control the latest screen’s three-second guidance. |
+| App display language selection (follow device language, Korean, English, or Japanese) | Used to retain the display language in builds with language settings. On Android 12L or earlier, AndroidX AppCompat stores the preference in private internal app storage; on Android 13 or later, Android manages it through per-app language settings. It is not sent to a developer-operated server. |
+
+Language settings are under development and apply only to builds that include them. The default follows the device language. You can select Korean, English, or Japanese in the app, or return to following the device language. Language settings do not request new access permissions or send information to a developer-operated server. Publishing this policy does not establish a feature release.
 
 Device imports copy original file contents, and Google Photos imports store the original download file provided by Google. Embedded metadata, such as capture time or location, may therefore remain in the imported copy. The app does not separately extract this metadata to track or analyze your location. The device gallery uses capture-date information from the device media store to sort photos.
 

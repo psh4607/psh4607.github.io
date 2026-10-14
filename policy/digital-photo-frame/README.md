@@ -3,7 +3,7 @@
 - App homepage (English and Korean): https://psh4607.github.io/policy/digital-photo-frame/home.html
 - English: https://psh4607.github.io/policy/digital-photo-frame/
 - Korean: https://psh4607.github.io/policy/digital-photo-frame/ko.html
-- Policy revision and effective date: October 13, 2026. Support emails and attachments are deleted within 90 days after the inquiry is closed.
+- Policy revision and effective date: October 14, 2026. Support emails and attachments are deleted within 90 days after the inquiry is closed.
 - The policy distinguishes the single-list app from the named-album app by the presence of an album management screen, not by a broad version-number range. Cancellation is available while copying photos and disabled while the album save is finalized. Publishing a policy revision does not establish that an app update has shipped.
 
 The Markdown files are the editable source; index.html and ko.html are static rendered copies. Regenerate both HTML files when updating the corresponding Markdown. No client-side JavaScript, analytics, or external fonts are used. These files are independent of the existing policy/gcp pages.
@@ -40,3 +40,7 @@ Unlinking a device album copies every photo in the current app album into privat
 ## 2026-10-13 system favorites linking
 
 On Android 11 or later, the app can link the device's system MediaStore favorites collection, including when it is empty, and reflect later favorite selections and removals. Gallery-private or cloud-only favorites not shared with MediaStore, people categories, and albums on other devices are excluded. Android 10 or earlier remains folder-only. No additional permission, network transfer, or original-photo modification is introduced. The existing unlink-to-manual behavior and 90-day support retention rule are unchanged. Publishing this policy does not establish an app release.
+
+## 2026-10-14 app language preference
+
+Both languages disclose the build-dependent language setting (follow device language, Korean, English, or Japanese), on-device storage through AndroidX AppCompat on Android 12L or earlier, and Android per-app language settings on Android 13 or later. No new access permission or developer-server transfer is introduced. The 90-day support retention rule is unchanged. Policy publication does not establish an app release.
