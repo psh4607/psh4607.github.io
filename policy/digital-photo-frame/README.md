@@ -64,3 +64,7 @@ Both policies disclose personal OneDrive and Dropbox read-only authorization, pr
 ## 2026-10-15 기기 동영상 선택 개정
 
 개발 중인 사진·동영상별 갤러리/외부 가져오기, 자체 선택 화면의 최근·앨범 탐색과 미디어 종류 분리, Android 13 이상 동영상 읽기 권한 및 Android 14 이상 제한된 사진·동영상 접근을 양 언어 Markdown과 HTML에 반영했습니다. 기기 앨범 자동 연결은 사진만 지원하며, Google 선택 화면의 혼합 표시와 앱의 다운로드 전 종류 필터, OneDrive·Dropbox 수동 동영상 가져오기도 설명하며 폴더 자동 연결은 사진만 지원합니다. 문의 종료 후 90일 이내 삭제 약속은 유지합니다. 정책 게시는 앱 출시를 의미하지 않습니다.
+
+## 2026-10-15 MediaPipe statistics disclosure
+
+Both policies disclose MediaPipe Tasks Android 0.10.35 task usage, performance, initialization errors and transport device/system/network context sent to Google for measuring, debugging and improving the SDK. Photos, videos and face locations stay on device. The app has no independent statistics opt-out while using the detector; local data deletion does not delete Google-held statistics. No unverified identifier or retention claim is made. Support correspondence retention remains 90 days after closure.
