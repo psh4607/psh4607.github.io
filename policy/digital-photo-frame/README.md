@@ -52,3 +52,7 @@ Builds with media tabs import user-selected videos through the Android system pi
 ## 2026-10-15 Google download-format clarification
 
 The policies distinguish device originals, Google image downloads (`=d`, Exif except location), and high-quality transcoded Google video downloads (`=dv`). Original video files or metadata are not guaranteed. This follows Google's Picker media-items guide: https://developers.google.com/photos/picker/guides/media-items . No app data handling or retention commitment changed.
+
+## 2026-10-15 digital clock and on-device face location detection
+
+Builds with the digital clock detect face locations locally to place clocks inside manual-album photos. Face boxes are transient and are not saved; image dimensions, photo-relative automatic/manual placements and size, enablement, preparation and error state remain in private app storage. No identification embeddings, people matching, new photo permissions or external uploads are introduced. Off/cancel can retain completed placements for reuse; photo/album removal cleans related clock records. The bundled model operates on-device. Existing media, hosting, and 90-day support retention disclosures are unchanged. Publishing this policy does not establish an app feature release.

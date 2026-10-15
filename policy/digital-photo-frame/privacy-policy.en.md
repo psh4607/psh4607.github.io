@@ -29,6 +29,14 @@ In manual albums with photo and video tabs, videos selected through the Android 
 
 Each video plays to the end before advancing, with audio following your device's media volume. Sequential playback shows photos followed by videos; shuffle mixes photos and videos together. The descriptions below of internal-copy retention, deletion, data protection, and no transfers to a developer-operated server also apply to videos. Publishing this policy does not establish a feature release.
 
+## Digital clock and face location detection (feature under development)
+
+The following applies only when you enable the digital clock in a build that includes it. It is offered for manual albums that store photos in the app, not linked albums. Publishing this policy does not establish a feature release.
+
+To place the clock within each photo while avoiding faces and nearby areas, the app detects face locations on your device. It does not identify people, match people across photos, or create face identification embeddings or people profiles. Face locations are used in memory only while calculating automatic placement and are not separately saved. Image dimensions, photo-relative automatic and manually edited clock positions and sizes, per-album clock enablement, and preparation progress and error state are kept in private internal app storage to restore placements. The face detection model bundled with the app runs on your device. This processing does not send photos or detection results to external servers or request new photo access permissions.
+
+Turning off the clock or cancelling preparation may retain completed local analysis and placements for later reuse. Removing a photo or album from the app also cleans up the clock records associated with that item. The retention and deletion section below explains how to remove all app data and how original photos are preserved.
+
 ## 1. Information processed on your device
 
 No app account or registration is required. Playing device photos does not require sign-in; choosing to import from Google Photos requires Google account authorization and consent. The app processes the following information on your device.
