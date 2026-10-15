@@ -60,3 +60,7 @@ Builds with the digital clock detect face locations locally to place clocks insi
 ## 2026-10-15 OneDrive and Dropbox (under development)
 
 Both policies disclose personal OneDrive and Dropbox read-only authorization, protected on-device tokens, explicit manual imports, selected direct-child photo folder synchronization while the app is active, offline internal copies and identifiers, complete-success-only membership replacement and deletion cleanup, unlink preserving copies, local account disconnection separately from provider-side revocation, and direct provider HTTPS requests without a developer-operated backend. Existing clock disclosures and the 90-day support retention rule are preserved. Publication does not establish app release, provider production approval, or runtime verification.
+
+## 2026-10-15 기기 동영상 선택 개정
+
+개발 중인 사진·동영상별 갤러리/외부 가져오기, 자체 선택 화면의 최근·앨범 탐색과 미디어 종류 분리, Android 13 이상 동영상 읽기 권한 및 Android 14 이상 제한된 사진·동영상 접근을 양 언어 Markdown과 HTML에 반영했습니다. 기기 앨범 자동 연결은 사진만 지원하며, Google 선택 화면의 혼합 표시와 앱의 다운로드 전 종류 필터, OneDrive·Dropbox 수동 동영상 가져오기도 설명하며 폴더 자동 연결은 사진만 지원합니다. 문의 종료 후 90일 이내 삭제 약속은 유지합니다. 정책 게시는 앱 출시를 의미하지 않습니다.
