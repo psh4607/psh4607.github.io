@@ -43,7 +43,7 @@ No app account or registration is required. Playing device photos does not requi
 
 Language settings are under development and apply only to builds that include them. The default follows the device language. You can select Korean, English, or Japanese in the app, or return to following the device language. Language settings do not request new access permissions or send information to a developer-operated server. Publishing this policy does not establish a feature release.
 
-Device photo and video imports copy original file contents, and Google Photos imports store the original download file provided by Google. Embedded metadata, such as capture time or location, may therefore remain in the imported copy. The app does not separately extract this metadata to track or analyze your location. The device gallery uses capture-date information from the device media store to sort photos.
+Device photo and video imports copy original file contents, so embedded metadata such as capture time or location may remain in the imported copy. Google Photos photos use the image download option (`=d`), which Google describes as retaining Exif metadata except location metadata. Google Photos videos are stored as the high-quality transcoded version Google provides (`=dv`); preservation of the original file or original metadata is not guaranteed. The app does not separately extract this metadata to track or analyze your location. The device gallery uses capture-date information from the device media store to sort photos.
 
 ## 2. Photo permissions
 

@@ -48,3 +48,7 @@ Both languages disclose the build-dependent language setting (follow device lang
 ## 2026-10-15 manual photo and video albums
 
 Builds with media tabs import user-selected videos through the Android system picker or ready Google Photos videos into private local storage. Policies disclose media type and duration, local thumbnails, full-length playback with device audio, sequential photos-then-videos and mixed shuffle. Existing gallery selection and linked albums stay photo-only, no broad video permission is added, and existing retention/deletion and 90-day support commitments remain. Hosting disclosure now names both GitHub Pages and the Cloudflare Pages mirror at https://photo-frame.seongho.dev/ (Korean: /ko). Policy publication does not establish an app release or Google authorization approval.
+
+## 2026-10-15 Google download-format clarification
+
+The policies distinguish device originals, Google image downloads (`=d`, Exif except location), and high-quality transcoded Google video downloads (`=dv`). Original video files or metadata are not guaranteed. This follows Google's Picker media-items guide: https://developers.google.com/photos/picker/guides/media-items . No app data handling or retention commitment changed.
