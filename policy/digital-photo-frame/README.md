@@ -68,3 +68,7 @@ Both policies disclose personal OneDrive and Dropbox read-only authorization, pr
 ## 2026-10-15 MediaPipe statistics disclosure
 
 Both policies disclose MediaPipe Tasks Android 0.10.35 task usage, performance, initialization errors and transport device/system/network context sent to Google for measuring, debugging and improving the SDK. Photos, videos and face locations stay on device. The app has no independent statistics opt-out while using the detector; local data deletion does not delete Google-held statistics. No unverified identifier or retention claim is made. Support correspondence retention remains 90 days after closure.
+
+## 2026-10-15 in-app updates and remote policy
+
+Both policies describe Google Play In-App Updates 2.1.0 metadata handling, the public HTTPS update-policy JSON without URL parameters or app-generated identifiers, locally persisted policy/revision/confirmed mandatory target/deferrals, optional Settings-only prompts, and confirmed mandatory-update restrictions. Existing MediaPipe statistics and other disclosures are preserved. Publishing the policy does not establish an app release or Play Console Data safety approval. The initial `update-policy.json` revision 1 enables the policy with minimum version 0 and no release overrides; it blocks no installed version and leaves optional updates Flexible by default.

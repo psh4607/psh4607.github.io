@@ -83,7 +83,7 @@ Google Photos 직접 가져오기는 Google이 제공하는 계정 인증과 선
 
 ## 3. 서버 전송과 제3자 서비스
 
-앱은 개발자 서버로 사진·동영상이나 재생 설정을 전송하지 않습니다. 광고나 별도 오류 수집 SDK를 사용하지 않습니다. 디지털 시계 항목에서 설명한 MediaPipe 작업 사용·성능 통계는 기기 내 처리의 예외입니다. Google Photos·OneDrive·Dropbox 직접 연동과 해당 SDK 통신을 위해 인터넷 접근 권한을 선언하며, 가져온 사진·동영상의 재생은 오프라인에서 가능합니다.
+앱은 개발자 서버로 사진·동영상이나 재생 설정을 전송하지 않습니다. 광고나 별도 오류 수집 SDK를 사용하지 않습니다. 디지털 시계 항목에서 설명한 MediaPipe 작업 사용·성능 통계는 기기 내 처리의 예외입니다. Google Photos·OneDrive·Dropbox 직접 연동과 해당 SDK 통신을 위해 인터넷 접근 권한을 선언하며, 가져온 사진·동영상의 재생은 아래 필수 업데이트 제한이 적용되지 않는 한 오프라인에서 가능합니다. 인터넷 접근 권한은 앱 업데이트와 원격 정책 확인에도 사용합니다.
 
 Google Photos를 선택한 경우 Google Play 서비스의 인증 기능으로 접근 토큰을 받고, HTTPS로 Google Photos Picker API에 선택 세션을 생성하고 선택 완료 여부와 선택 항목을 조회합니다. API 요청은 `photospicker.googleapis.com`으로, 사진·동영상 다운로드는 Google의 `googleusercontent.com` 하위 도메인으로 전송됩니다. 토큰은 해당 요청의 인증에 사용하며 사진·동영상은 Google에서 기기로 다운로드합니다. 계정 인증과 사진 선택 과정에는 Google 서비스와 브라우저가 관여하며, 이 과정의 처리에는 [Google 개인정보처리방침](https://policies.google.com/privacy)이 적용됩니다.
 
@@ -98,6 +98,16 @@ Google Photos 앨범 자동 동기화와 Ambient API 연동은 현재 제공하�
 Google Play의 앱 배포·구매·기기 진단 등 Google 자체 서비스에서 처리하는 정보에는 [Google 개인정보처리방침](https://policies.google.com/privacy)이 적용됩니다. 이러한 서비스의 처리는 앱이 직접 수행하는 처리와 구분됩니다.
 
 이 개인정보처리방침은 GitHub Pages와 Cloudflare Pages에서 제공합니다. 자체 광고나 분석 스크립트를 사용하지 않습니다. 페이지 방문에 따른 IP 주소 등 호스팅 정보는 각 호스팅 서비스의 [GitHub 개인정보처리방침](https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement) 또는 [Cloudflare 개인정보처리방침](https://www.cloudflare.com/privacypolicy/)에 따라 처리될 수 있으며, 앱 내부 사진·동영상이 이 웹페이지로 전송되는 것은 아닙니다.
+
+## 앱 업데이트와 원격 정책 (개발 중인 기능)
+
+이 설명은 앱 내 업데이트 기능이 포함된 빌드에만 적용되며, 방침 게시는 앱 업데이트 출시를 의미하지 않습니다. Google Play In-App Updates 라이브러리(`app-update:2.1.0`)를 사용합니다. Google Play는 업데이트 제공 여부와 예상 크기를 확인하기 위해 기기 메타데이터, 앱 버전, 설치된 모듈·애셋 팩 목록을 처리합니다. [Google 공식 안내](https://developer.android.com/guide/playcore/in-app-updates#data-safety)에 따르면 이 정보는 암호화되며 제3자에게 공유하지 않고 정해진 보관 기간 후 삭제합니다. 해당 안내는 구체적인 보관 기간을 명시하지 않습니다. 이 업데이트 확인을 위해 앱의 사진·동영상이나 앨범 내용을 보내지 않습니다. Google의 처리에는 [Google 개인정보처리방침](https://policies.google.com/privacy)과 [Google Play 서비스 약관](https://play.google.com/about/play-terms/)이 적용됩니다.
+
+앱은 업데이트 방식과 최소 지원 버전을 확인하기 위해 `https://psh4607.github.io/policy/digital-photo-frame/update-policy.json`의 공개 정책 파일을 HTTPS GET으로 내려받습니다. URL 매개변수를 추가하지 않으며, 사진·동영상, 앨범 정보, 계정 정보 또는 앱이 만든 사용자·기기 식별자를 요청에 포함하지 않습니다. 설치된 버전과의 비교는 기기에서 수행합니다. GitHub Pages에는 IP 주소와 요청 시각 등 통상적인 접속 정보가 전달될 수 있으며 [GitHub 개인정보처리방침](https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement)이 적용됩니다. 개발자는 이 요청으로 사용자 행동 분석이나 위치 추적을 수행하지 않습니다.
+
+받아들인 정책과 정책 개정 번호, 확인된 필수 업데이트 대상 버전, 일반 업데이트 안내를 미룬 버전·시각은 앱 전용 내부 저장소의 설정에 보관합니다. 앱을 다시 실행해도 업데이트 판단과 안내 유예를 유지하기 위한 정보이며, 앱 데이터 삭제 또는 앱 제거 시 함께 삭제됩니다. 이 로컬 삭제가 Google이나 호스팅 서비스가 이미 처리한 정보의 삭제를 의미하지는 않습니다.
+
+일반 업데이트는 설정 화면에서만 안내하며 다운로드와 재시작을 미룰 수 있습니다. 필수 업데이트는 Google Play에서 해당 기기에 제공되는 호환 업데이트를 확인한 경우 재생을 중단하고 앱 사용을 제한할 수 있습니다. 필수 업데이트 안내를 취소하면 재시도 또는 종료만 제공할 수 있습니다. 가져온 사진·동영상은 기기에 보관되지만, 확인된 필수 업데이트가 적용될 때까지 재생 등 앱 사용이 제한될 수 있습니다. 업데이트 적용에는 앱 재시작이 필요합니다.
 
 ## 4. 보관 기간과 삭제 방법
 
