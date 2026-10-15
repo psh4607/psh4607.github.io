@@ -37,9 +37,23 @@ To place the clock within each photo while avoiding faces and nearby areas, the 
 
 Turning off the clock or cancelling preparation may retain completed local analysis and placements for later reuse. Removing a photo or album from the app also cleans up the clock records associated with that item. The retention and deletion section below explains how to remove all app data and how original photos are preserved.
 
+## OneDrive and Dropbox photo import and folder linking (under development)
+
+This description applies only to builds that include OneDrive and Dropbox features. Publishing this policy does not establish a feature release or completion of a provider's production review. OneDrive supports personal Microsoft accounts. Choosing a provider opens that service's sign-in and consent screen; you do not provide your password to the app or developer. The app uses Microsoft's MSAL and Dropbox PKCE authorization to request access to read photos and folders and maintain sign-in. It does not request permission to upload, modify, or delete originals.
+
+Manual albums created in the app download only photos you explicitly select into internal storage. Later additions, changes, or deletions in the cloud are not automatically reflected. A linked folder includes photos directly inside the single folder you select, excluding subfolders and videos. The app checks the list and photo changes approximately every 60 seconds while it is active in the foreground, or when you request a refresh. Continuous background synchronization is not guaranteed.
+
+Linked photos are downloaded to private internal app storage for offline playback. The app stores the provider and account identifiers, display name, linked folder identifier, name and path, photo identifiers and revisions, internal file URIs, and link and playback state on your device. A new list is saved only after the complete listing and required downloads succeed. When a successful synchronization confirms that an original was deleted, its linked membership is removed and internal copies unused by other albums are cleaned up. Expired sign-in, insufficient permission, network errors, and failed downloads alone do not erase existing lists or copies.
+
+Unlinking an album converts it to a manual album while preserving its current internal copies. Disconnecting a provider account removes that provider's sign-in information held by the app, but does not delete existing albums or copies. Updating remaining linked albums requires signing in again. Cloud originals are never modified or deleted by these operations.
+
+Tokens needed to maintain Microsoft or Dropbox sign-in are kept in protected on-device storage according to the authorization method used. Clearing app data or uninstalling removes the app's tokens and internal data. Sign-in state managed by a browser or provider app follows that service's settings; disconnecting in this app does not revoke the service-side consent. You can also revoke access through your Microsoft or Dropbox account's connected-app controls.
+
+Authorization, folder queries, and photo downloads use HTTPS directly between your device and Microsoft or Dropbox, without a developer-operated server. Authorization and data requests go to Microsoft sign-in, Microsoft Graph API and download hosts, or Dropbox sign-in, API and content hosts. Their processing is covered respectively by the [Microsoft Privacy Statement](https://privacy.microsoft.com/privacystatement) and [Dropbox Privacy Policy](https://www.dropbox.com/privacy). Downloaded photos may retain metadata embedded in the original file, such as capture time or location. Photos and related information are not sold or used for advertising, analytics, or AI training.
+
 ## 1. Information processed on your device
 
-No app account or registration is required. Playing device photos does not require sign-in; choosing to import from Google Photos requires Google account authorization and consent. The app processes the following information on your device.
+No app account or registration is required. Playing device photos does not require sign-in; choosing Google Photos, OneDrive, or Dropbox import or folder linking requires authorization and consent for that provider account. The app processes the following information on your device.
 
 | Information | Purpose and storage |
 | --- | --- |
@@ -67,11 +81,11 @@ When updating from an earlier version, existing photos and playback state are mi
 
 ## 3. Transfers and third-party services
 
-The app does not send photos, videos, or playback settings to a developer-operated server. It does not use advertising, user behavior analytics, or a separate crash-reporting SDK. It declares internet access permission for direct Google Photos import; imported photos and videos can be played offline.
+The app does not send photos, videos, or playback settings to a developer-operated server. It does not use advertising, user behavior analytics, or a separate crash-reporting SDK. It declares internet access permission for direct Google Photos, OneDrive, and Dropbox integration; imported photos and videos can be played offline.
 
 If you choose Google Photos, the app obtains an access token through Google Play services authorization and uses HTTPS to create a Google Photos Picker session, check whether selection is complete, and retrieve selected items. API requests go to `photospicker.googleapis.com`, and photo and video downloads go to Google's `googleusercontent.com` subdomains. The token authenticates these requests, and photos and videos are downloaded from Google to your device. Google's services and your browser participate in authorization and photo selection; their processing is subject to the [Google Privacy Policy](https://policies.google.com/privacy).
 
-The app holds access tokens, selection session information, and temporary download URLs in memory during the operation, without saving them to files or databases. Account and authorization state managed by Google Play services and your browser follows those services' behavior and settings. Google Photos media identifiers used to detect duplicate imports are stored with the photo list in the app's internal database. The app does not obtain or store a separate refresh token.
+For Google Photos import, the app holds access tokens, selection session information, and temporary download URLs in memory during the operation, without saving them to files or databases. Account and authorization state managed by Google Play services and your browser follows those services' behavior and settings. Google Photos media identifiers used to detect duplicate imports are stored with the photo list in the app's internal database. The app does not obtain or store a separate refresh token.
 
 Information received from Google Photos is used for the photo and video imports, app album management, and frame playback you request. Photos, videos, and related information are not sold or used for advertising, analytics, or AI training. Use of information received from Google APIs follows the [Google API Services User Data Policy](https://developers.google.com/terms/api-services-user-data-policy), including its Limited Use requirements, and the [Google Photos API User Data and Developer Policy](https://developers.google.com/photos/support/api-policy).
 
@@ -95,13 +109,13 @@ In versions with app albums, imports add photos to the selected app album withou
 
 To remove all imported photos and settings, use **Storage → Clear storage / Clear data** for this app in Android settings, or uninstall the app. Menu names vary by device. **Clearing the cache alone does not remove all imported photos and settings.** The current app does not have an in-app delete-all button.
 
-Clearing app data or uninstalling the app does not delete originals in your device gallery or cloud photo service. Deleting an original from your gallery or cloud service does not remove a copy previously imported into the app; delete that copy separately using the methods above.
+Clearing app data or uninstalling the app does not delete originals in your device gallery or cloud photo service. For manual albums, deleting an original from your gallery or cloud service does not remove an imported copy; delete that copy separately using the methods above. OneDrive and Dropbox linked albums follow the successful folder synchronization deletion behavior described above.
 
 The developer cannot remotely access or delete photos and settings stored on your device. There is no app account to close.
 
 ## 5. Data protection
 
-Photo copies and settings are stored in internal app storage protected by Android's app access controls. The app provides no cloud backup or account synchronization feature and is configured to disable Android automatic backup. Device migration features provided by your device manufacturer are subject to the device's settings and policies.
+Photo copies and settings are stored in internal app storage protected by Android's app access controls. The app provides no cloud backup to its own server or synchronization of app albums between devices and is configured to disable Android automatic backup. Device migration features provided by your device manufacturer are subject to the device's settings and policies.
 
 ## 6. Contact and your choices
 
